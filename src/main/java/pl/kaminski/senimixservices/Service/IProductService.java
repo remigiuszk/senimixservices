@@ -6,7 +6,6 @@ import java.util.List;
 
 public interface IProductService {
     List<ProductEntity> getAllProducts();
-    Boolean addProduct(ProductEntity productEntity);
+    Boolean saveProduct(ProductEntity productEntity);
     Boolean deleteProductById(long id);
-    Boolean editProduct(ProductEntity productEntity);
 }
