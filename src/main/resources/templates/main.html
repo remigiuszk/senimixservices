@@ -1,37 +1,30 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foundation | Welcome</title>
+    <title>Seni | Mix & Mastering</title>
     <link rel="stylesheet" href="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+    <link href="../static/css/mainstyle.css" th:href="@{../static/css/mainstyle.css}" rel="stylesheet"/>
 </head>
 <body>
 
 <!-- Start Top Bar -->
-<div class="top-bar">
+<div class="top-bar" style="background-color: #3a3a3a">
     <div class="top-bar-left">
         <ul class="menu">
-            <li class="menu-text">Yeti Agency</li>
-            <li><a href="#">One</a></li>
-            <li><a href="#">Two</a></li>
-        </ul>
-    </div>
-    <div class="top-bar-right">
-        <ul class="menu">
-            <li><a href="#">Three</a></li>
-            <li><a href="#">Four</a></li>
-            <li><a href="#">Five</a></li>
-            <li><a href="#">Six</a></li>
+            <li class="menu-text">Seni | Mix & Mastering</li>
+            <li><a href="/products">Produkty</a></li>
+            <li><a href="/contact">Kontakt</a></li>
         </ul>
     </div>
 </div>
 <!-- End Top Bar -->
 
-<div class="callout large">
+<div class="callout large" id="mainbanner">
     <div class="row column text-center">
-        <h1>Changing the World Through Design</h1>
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris.</p>
+        <h1>Seni | Mix & Mastering</h1>
+        <p class="lead">Social media: </p>
         <a href="#" class="button large">Learn More</a>
         <a href="#" class="button large hollow">Learn Less</a>
     </div>
