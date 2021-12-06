@@ -1,7 +1,9 @@
 package pl.kaminski.senimixservices.Repo;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Repository;
 import pl.kaminski.senimixservices.Model.ProductEntity;
 
-public interface ProductRepo extends JpaRepository<ProductEntity, Long> {
+@Repository
+public interface ProductRepo extends MongoRepository<ProductEntity, Long> {
 }
