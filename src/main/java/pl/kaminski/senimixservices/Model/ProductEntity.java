@@ -1,12 +1,7 @@
 package pl.kaminski.senimixservices.Model;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-
-@Document
 public class ProductEntity {
-    @Id
     private int id;
     private String name;
     private String price;

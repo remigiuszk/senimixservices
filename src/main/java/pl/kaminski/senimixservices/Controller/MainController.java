@@ -11,5 +11,22 @@ public class MainController implements IMainController {
 
     @EventListener(ApplicationReadyEvent.class)
     @RequestMapping("/")
-    public String mainPage(){return "main"; }
+    public String mainPage() {
+        return "main";
+    }
+
+    @RequestMapping("/pl")
+    public String mainPagePl() {
+        return "mainpl";
+    }
+
+    @RequestMapping("/services")
+    public String servicesPage() {
+        return "services";
+    }
+
+    @RequestMapping("/pl/services")
+    public String servicesPagePl() {
+        return "servicespl";
+    }
 }
