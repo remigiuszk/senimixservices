@@ -17,13 +17,13 @@
 /*    height: 100%;*/
 /*}*/
 
-#vid-container{
+#vid-container {
     display: flex;
     flex-direction: row;
 }
 
-#vid-container button{
-    background-color: rgba(0,0,0,0.7);
+#vid-container button {
+    background-color: rgba(0, 0, 0, 0.7);
     border-radius: 0;
     text-align: center;
     color: #888888;
@@ -31,12 +31,11 @@
     padding: 10px;
 }
 
-#vid-container iframe{
+#vid-container iframe {
     flex-basis: 98%;
 }
 
-#o-mnie-container
-{
+#o-mnie-container {
     padding: 1em;
 }
 
@@ -50,13 +49,9 @@ body {
     font-size: 13px;
 }
 
-#navbar-logo{
+#navbar-logo {
     height: 100%;
     width: 125px;
-}
-
-#message {
-    width: 250px;
 }
 
 h1,
@@ -74,6 +69,10 @@ label {
     height: auto;
 }
 
+.pure-g {
+    margin-top: 0
+}
+
 /*
  * -- LAYOUT STYLES --
  * These are some useful classes which I will need
@@ -84,13 +83,12 @@ label {
 
 .l-box-lrg {
     padding: 2em;
-    border-bottom: 1px solid rgba(0,0,0,0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .is-center {
     text-align: center;
 }
-
 
 
 /*
@@ -138,22 +136,24 @@ a.pure-button-primary {
 .home-menu {
     padding: 0.5em;
     text-align: center;
-    box-shadow: 0 1px 1px rgba(0,0,0, 0.10);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.10);
 }
+
 .home-menu {
-    background-color: rgba(0,0,0,.7);
+    background-color: rgba(0, 0, 0, .7);
 }
+
 .pure-menu.pure-menu-fixed {
     /* I need a higher z-index here because of the scroll-over effect. */
     z-index: 4;
-    display:flex;
+    display: flex;
     align-items: center;
     margin-bottom: 0;
 }
 
-.pure-menu-list-right{
+.pure-menu-list-right {
     z-index: 4;
-    display:flex;
+    display: flex;
     align-items: center;
     margin-left: auto;
     margin-right: 1em;
@@ -174,6 +174,17 @@ a.pure-button-primary {
     color: white;
 }
 
+.home-menu .pure-menu-button {
+    background: transparent;
+    color: #6FBEF3;
+    margin: 1em;
+    border: none;
+}
+
+.home-menu .pure-menu-button:hover {
+    color: #AECFE5;
+}
+
 .home-menu a {
     color: #6FBEF3;
 }
@@ -192,7 +203,7 @@ a.pure-button-primary {
  */
 
 .splash-container {
-    background-image: url("../img/bannerbg.jpg");
+    background-image: url("../img/studiobg.png");
     z-index: 1;
     overflow: hidden;
     /* The following styles are required for the "scroll-over" effect */
@@ -209,7 +220,10 @@ a.pure-button-primary {
     height: 50%;
     margin: auto;
     position: absolute;
-    top: 100px; left: 0; bottom: 0; right: 0;
+    top: 100px;
+    left: 0;
+    bottom: 0;
+    right: 0;
     text-align: center;
     text-transform: uppercase;
 }
@@ -231,6 +245,7 @@ a.pure-button-primary {
     color: white;
     letter-spacing: 0.05em;
     opacity: 0.8;
+    margin-bottom: 1em;
 }
 
 /*
@@ -257,7 +272,7 @@ a.pure-button-primary {
     font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    margin: 2em 0 1em;
+    margin: 1em 0 1em;
 }
 
 /* This is a modifier class used when the content-head is inside a ribbon */
@@ -269,6 +284,7 @@ a.pure-button-primary {
 .content-subhead {
     color: #1f8dd6;
 }
+
 .content-subhead i {
     margin-right: 7px;
 }
@@ -287,6 +303,153 @@ a.pure-button-primary {
     width: 100%;
 }
 
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.buttons {
+    margin-top: 3em;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
+.buttons .row {
+    display: block;
+}
+
+.buttons .row button {
+    position: relative;
+    display: block;
+    height: 55px;
+    width: 350px;
+    margin-bottom: 1em;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    border: none;
+    outline: none;
+    border-radius: 0 5px 5px 0;
+    transition: all 0s ease-out;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
+.row button:active {
+    top: 3px;
+}
+
+.row button.facebook,
+.row button.facebook span {
+    background: #3B5999;
+    border-left: 1px solid #2E4476;
+    box-shadow: 0px 5px 0px 0px #2E4476;
+}
+
+.row button.facebook:active {
+    box-shadow: 0px 2px 0px 0px #2E4476;
+}
+
+.row button.twitter,
+.row button.twitter span {
+    background: #DE463B;
+    border-left: 1px solid #C02B21;
+    box-shadow: 0px 5px 0px 0px #C02B21;
+    font-size: 16px;
+}
+
+.row button.twitter:active {
+    box-shadow: 0px 2px 0px 0px #DE463B;
+}
+
+.row button.instagram,
+.row button.instagram span {
+    background: #e1306c;
+    border-left: 1px solid #c91d56;
+    box-shadow: 0px 5px 0px 0px #c91d56;
+}
+
+.row button.instagram:active {
+    box-shadow: 0px 2px 0px 0px #c91d56;
+}
+
+.row button span {
+    position: absolute;
+    height: 55px;
+    width: 60px;
+    top: 0;
+    left: -60px;
+    line-height: 55px;
+    font-size: 25px;
+    display: block;
+    font-weight: normal;
+    border-radius: 5px 0 0 5px;
+}
+
+.row button:active span {
+    top: -3px;
+}
+
+.row button.facebook span {
+    border-right: 1px solid #2E4476;
+}
+
+.row button.instagram span {
+    border-right: 1px solid #c91d56;
+}
+
+.row button.twitter span {
+    border-right: 1px solid #C02B21;
+}
+
+.row button.facebook:active span {
+    box-shadow: 0px 5px 0px 0px #2E4476,
+    6px 4px 2px rgba(0, 0, 0, 0.3);
+}
+
+.row button.instagram:active span {
+    box-shadow: 0px 5px 0px 0px #c91d56,
+    6px 4px 2px rgba(0, 0, 0, 0.3);
+}
+
+.row button.twitter:active span {
+    box-shadow: 0px 5px 0px 0px #C02B21,
+    6px 4px 2px rgba(0, 0, 0, 0.3);
+}
+
+.link {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+}
+
+.textarea {
+    resize: none;
+    width: 700px;
+    margin-bottom: 1em;
+}
+
+.pure-form-stacked {
+    margin-left: 7em;
+}
+
+.pure-form input[type] {
+    width: 40%;
+}
+
+
 /*
  * -- TABLET (AND UP) MEDIA QUERIES --
  * On tablets and other medium-sized devices, we want to customize some
@@ -304,6 +467,7 @@ a.pure-button-primary {
     .home-menu {
         text-align: left;
     }
+
     .home-menu ul {
         float: right;
     }
@@ -312,7 +476,6 @@ a.pure-button-primary {
     /*    .splash-container {
             height: 500px;
         }*/
-
     /* We decrease the width of the .splash, since we have more width
     to work with */
     .splash {

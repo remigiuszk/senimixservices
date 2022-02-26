@@ -19,8 +19,8 @@
         </a>
 
         <ul class="pure-menu-list">
-            <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">Strona główna</a></li>
-            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Usługi</a></li>
+            <li class="pure-menu-item pure-menu-selected"><a th:href="@{/pl}" class="pure-menu-link">Strona główna</a></li>
+            <li class="pure-menu-item"><a th:href="@{/pl/services}" class="pure-menu-link">Usługi</a></li>
         </ul>
         <ul class="pure-menu-list-right">
             <li class="pure-menu-item">
@@ -111,35 +111,57 @@
     </div>
 
     <div class="content">
-        <h2 class="content-head is-center">Masz pytania? Skontaktuj się</h2>
+        <h2 class="content-head is-center">Pytania? Skontaktuj się</h2>
 
         <div class="pure-g">
-            <div class="l-box-lrg pure-u-1 pure-u-md-2-5">
+            <div style="padding: 0;" class="l-box-lrg pure-u-1 pure-u-md-2-5">
+                <h4 class="content-head" style="margin: 0 0 0 7em;">Formularz kontaktowy</h4>
                 <form class="pure-form pure-form-stacked">
                     <fieldset>
-
+                        <label style="margin-top: 0" for="service">Wybrana usługa:</label>
+                        <select id="service" class="pure-input-1-2">
+                            <option>Żaden - chcę się tylko skontaktować</option>
+                            <option>poniżej 10 śladów - 89zł</option>
+                            <option>od 10 do 20 śladów - 129zł</option>
+                            <option>powyżej 30 śladów - 149zł</option>
+                        </select>
                         <label for="name">Imię</label>
-                        <input id="name" type="text" placeholder="Twoje imię">
+                        <input id="name" type="text" placeholder="Twoje imię" required="">
 
-                        <label for="email">Email</label>
-                        <input id="email" type="email" placeholder="Twój email">
+                        <label for="email">E-mail</label>
+                        <input id="email" type="email" placeholder="Twój e-mail" required="">
 
-                        <label for="message">Wiadomość</label>
-                        <textarea id="message" type="text" placeholder="Treść wiadomości" rows="4" cols="70"></textarea>
+                        <label for="message">Treść wiadomości</label>
+                        <textarea class="textarea" required="" id="message" type="text" placeholder="Treść wiadomości" rows="4"></textarea>
 
                         <button type="submit" class="pure-button">Wyślij wiadomość</button>
                     </fieldset>
                 </form>
             </div>
 
-            <div class="l-box-lrg pure-u-1 pure-u-md-3-5">
-                <h4>Social media: </h4>
-                <p>
-                    *Tu będą linki do sociali*
-                </p>
+            <div style="padding: 0;" class="l-box-lrg pure-u-1 pure-u-md-3-5">
+                <div class="buttons">
+                    <div class="row">
+                        <button class="twitter">
+                            <span><i class="fa fa-envelope"></i></span>
+                            <a class="link" href="mailto:senimixservices@gmail.com">senimixservices@gmail.com </a>
+                        </button>
+                        <a class="link" href="#" onclick='window.open("https://www.facebook.com/Seni-Mix-Mastering-111342397698442");return false;'>
+                            <button type="submit" class="facebook">
+                                <span><i class="fa fa-facebook"></i></span>
+                                Seni Mix & Mastering
+                            </button>
+                        </a>
+                        <a class="link" href="#" onclick='window.open("https://www.instagram.com/seni.qui");return false;'>
+                            <button type="submit" class="instagram">
+                                <span><i class="fa fa-instagram"></i></span>
+                                seni.qui
+                            </button>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
-
     </div>
 
 

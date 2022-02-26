@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/grids-responsive-min.css"/>
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
     <link href="../static/css/mainstyle.css" th:href="@{/css/mainstyle.css}" rel="stylesheet"/>
+    <script type="text/javascript" th:src="@{/js/main.js}"></script>
 </head>
 <body>
 
@@ -25,7 +26,7 @@
         </ul>
         <ul class="pure-menu-list-right">
             <li class="pure-menu-item">
-                <a href="" class="pure-menu-link">Contact us</a>
+                <button onclick="scrollToBottom()" class="pure-menu-button">Contact us</button>
             </li>
             <li class="pure-menu-item">
                 <a id="navbar-lang-button" th:href="@{/pl}">
@@ -41,7 +42,7 @@
     <div class="splash">
         <h1 class="splash-head">Mixed by seni</h1>
         <p class="splash-subhead">
-           Online audio mix & mastering
+            Online audio mix & mastering
         </p>
         <p>
             <a href="http://purecss.io" class="pure-button pure-button-primary">Go to services</a>
@@ -51,13 +52,13 @@
 
 <div class="content-wrapper">
     <div class="content">
-        <h1 class="content-head is-center">W ramach naszych usług oferujemy:</h1>
+        <h1 class="content-head is-center">Using our service you get:</h1>
 
         <div class="pure-g">
             <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
 
                 <h3 class="content-subhead">
-                    <i class="fa fa-rocket"></i>
+                    <i class="fa fa-check-square-o"></i>
                     Your mix delivered in 72h
                 </h3>
                 <p>
@@ -66,16 +67,17 @@
             </div>
             <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
                 <h3 class="content-subhead">
-                    <i class="fa fa-mobile"></i>
+                    <i class="fa fa-check-square-o"></i>
                     Payment after the service is provided
                 </h3>
                 <p>
-                    You pay for the service only after receiving the mix, if we do not meet your expectations - <b> you do not pay for the service.</b>
+                    You pay for the service only after receiving the mix, if we do not meet your expectations - <b> you
+                    do not pay for the service.</b>
                 </p>
             </div>
             <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
                 <h3 class="content-subhead">
-                    <i class="fa fa-th-large"></i>
+                    <i class="fa fa-check-square-o"></i>
                     Free revisions
                 </h3>
                 <p>
@@ -104,46 +106,69 @@
         </div>
         <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-2-5" id="o-mnie-container">
 
-            <h2 class="content-head content-head-ribbon">O mnie</h2>
+            <h2 class="content-head content-head-ribbon">About me / my portfolio</h2>
 
             <p>
-                Tutaj musisz mi dosłać jakieś krótkie przedstawienie ciebie Tutaj musisz mi dosłać jakieś krótkie
-                przedstawienie ciebieTutaj musisz mi dosłać jakieś krótkie przedstawienie ciebieTutaj musisz mi dosłać
-                jakieś krótkie przedstawienie ciebieTutaj musisz mi dosłać jakieś krótkie przedstawienie ciebie
+                As an artist i create and mix my own music. Using the service we can achieve a similar result.
             </p>
         </div>
     </div>
 
     <div class="content">
-        <h2 class="content-head is-center">Masz pytania? Skontaktuj się</h2>
+        <h2 class="content-head is-center">Any questions? Contact us</h2>
 
         <div class="pure-g">
-            <div class="l-box-lrg pure-u-1 pure-u-md-2-5">
+            <div style="padding: 0;" class="l-box-lrg pure-u-1 pure-u-md-2-5">
+                <h4 class="content-head" style="margin: 0 0 0 7em;">Contact form</h4>
                 <form class="pure-form pure-form-stacked">
                     <fieldset>
-
-                        <label for="name">Imię</label>
-                        <input id="name" type="text" placeholder="Twoje imię">
+                        <label style="margin-top: 0" for="service">Selected service:</label>
+                        <select id="service" class="pure-input-1-2">
+                            <option>None - just contacting</option>
+                            <option>below 10 stems - 49$</option>
+                            <option>10 to 20 stems - $59</option>
+                            <option>over 30 stems - $79</option>
+                        </select>
+                        <label for="name">Name</label>
+                        <input id="name" type="text" placeholder="Your name" required="">
 
                         <label for="email">Email</label>
-                        <input id="email" type="email" placeholder="Twój email">
+                        <input id="email" type="email" placeholder="Your e-mail" required="">
 
                         <label for="message">Wiadomość</label>
-                        <textarea id="message" type="text" placeholder="Treść wiadomości" rows="4" cols="70"></textarea>
+                        <textarea class="textarea" required="" id="message" type="text" placeholder="Message"
+                                  rows="4"></textarea>
 
-                        <button type="submit" class="pure-button">Wyślij wiadomość</button>
+                        <button type="submit" class="pure-button">Send message</button>
                     </fieldset>
                 </form>
             </div>
 
-            <div class="l-box-lrg pure-u-1 pure-u-md-3-5">
-                <h4>Social media: </h4>
-                <p>
-                    *Tu będą linki do sociali*
-                </p>
+            <div style="padding: 0;" class="l-box-lrg pure-u-1 pure-u-md-3-5">
+                <div class="buttons">
+                    <div class="row">
+                        <button class="twitter">
+                            <span><i class="fa fa-envelope"></i></span>
+                            <a class="link" href="mailto:senimixservices@gmail.com">senimixservices@gmail.com </a>
+                        </button>
+                        <a class="link" href="#"
+                           onclick='window.open("https://www.facebook.com/Seni-Mix-Mastering-111342397698442");return false;'>
+                            <button type="submit" class="facebook">
+                                <span><i class="fa fa-facebook"></i></span>
+                                Seni Mix & Mastering
+                            </button>
+                        </a>
+                        <a class="link" href="#"
+                           onclick='window.open("https://www.instagram.com/seni.qui");return false;'>
+                            <button type="submit" class="instagram">
+                                <span><i class="fa fa-instagram"></i></span>
+                                seni.qui
+                            </button>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
-
     </div>
 
 

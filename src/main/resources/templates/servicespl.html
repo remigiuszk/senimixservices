@@ -1,150 +1,230 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A layout example that shows off a responsive pricing table.">
-    <title>Pricing Table &ndash; Layout Examples &ndash; Pure</title>
+    <title>Mixed By Seni | Usługi</title>
     <link rel="stylesheet" href="/css/pure/pure-min.css">
     <link rel="stylesheet" href="/css/pure/grids-responsive-min.css">
     <link rel="stylesheet" href="/layouts/pricing/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/pure-min.css"
+          integrity="sha384-Uu6IeWbM+gzNVXJcM9XV3SohHtmWE+3VGi496jvgX1jyvDTXfdK+rfZc8C1Aehk5" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/grids-responsive-min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link href="../static/css/mainstyle.css" th:href="@{/css/mainstyle.css}" rel="stylesheet"/>
+    <link href="../static/css/servicesstyle.css" th:href="@{/css/servicesstyle.css}" rel="stylesheet"/>
+    <script type="text/javascript" th:src="@{/js/services.js}"></script>
 </head>
 <body>
 
-<div class="pure-menu pure-menu-horizontal">
-    <a href="#" class="pure-menu-heading">Your Logo</a>
-    <ul class="pure-menu-list">
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Home</a></li>
-        <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">Pricing</a></li>
-        <li class="pure-menu-item"><a href="#" class="pure-menu-link">Contact</a></li>
-    </ul>
+<div class="header">
+    <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+        <a class="pure-menu-heading" href="">
+            <img id="navbar-logo" alt="logo" class="pure-img" th:src="@{/img/white_logo_transparent_background.png}"/>
+        </a>
+
+        <ul class="pure-menu-list">
+            <li class="pure-menu-item"><a th:href="@{/pl}" class="pure-menu-link">Strona główna</a></li>
+            <li class="pure-menu-item pure-menu-selected"><a th:href="@{/pl/services}" class="pure-menu-link">Usługi</a>
+            </li>
+        </ul>
+        <ul class="pure-menu-list-right">
+            <li class="pure-menu-item">
+                <button onclick="scrollToBottom()" class="pure-menu-button">Skontaktuj się</button>
+            </li>
+            <li class="pure-menu-item">
+                <a id="navbar-lang-button" th:href="@{/services}">
+                    <img id="navbar-lang" title="Switch to English" alt="PL" height="25px" width="40px" class="pure-img"
+                         th:src="@{/img/uk.png}"/>
+                </a>
+            </li>
+        </ul>
+    </div>
 </div>
 
-<div class="banner">
-    <h1 class="banner-head">
-        Simple Pricing.<br>
-        Try before you buy.
-    </h1>
+<div class="splash-container">
+    <div class="splash">
+        <h1 class="splash-head">Mixed by seni</h1>
+        <p class="splash-subhead">
+            Miks mastering online
+        </p>
+    </div>
 </div>
 
-<div class="l-content">
-    <div class="pricing-tables pure-g">
-        <div class="pure-u-1 pure-u-md-1-3">
-            <div class="pricing-table pricing-table-free">
-                <div class="pricing-table-header">
-                    <h2>Personal</h2>
+<div class="content-wrapper">
+    <div class="l-content">
+        <div class="header-wrapper">
+            <h1 class="content-head is-center">Wybierz swój plan</h1>
+            <p class="header-content">Dzięki profesjonalnej usłudze miksu i masteringu twój utwór dotrze do większej ilości
+                słuchaczy. Poza byciem inżynierem, jestem również artystą i tworzę własną muzykę,
+                która zebrała już pokaźne grono odbiorców, dlatego jeśli będziesz sobie tego życzył,
+                chętnie postaram się wzbogacić twój kawałek moimi sugestiami, przekazać ci inne
+                spojrzenie na utwór, jeszcze zanim zostanie on opublikowany.</p>
+        </div>
+        <div class="pricing-tables pure-g">
+            <div class="pure-u-1 pure-u-md-1-3">
+                <div class="pricing-table pricing-table-free">
+                    <div class="pricing-table-header">
+                        <h2>poniżej 10 śladów</h2>
 
-                    <span class="pricing-table-price">
-                        $5 <span>per month</span>
+                        <span class="pricing-table-price">
+                        89zł <span></span>
                     </span>
+                    </div>
+
+                    <button onclick="choosePlan(1)" class="button-choose pure-button">Wybierz</button>
+                </div>
+            </div>
+
+            <div class="pure-u-1 pure-u-md-1-3">
+                <div class="pricing-table pricing-table-biz pricing-table-selected">
+                    <div class="pricing-table-header">
+                        <h2>od 10 do 20 śladów</h2>
+
+                        <span class="pricing-table-price">
+                        129zł <span></span>
+                    </span>
+                    </div>
+
+                    <button onclick="choosePlan(2)" class="button-choose pure-button">Wybierz</button>
+                </div>
+            </div>
+
+            <div class="pure-u-1 pure-u-md-1-3">
+                <div class="pricing-table pricing-table-enterprise">
+                    <div class="pricing-table-header">
+                        <h2>powyżej 30 śladów</h2>
+
+                        <span class="pricing-table-price">
+                        149zł <span></span>
+                    </span>
+                    </div>
+
+                    <button onclick="choosePlan(3)" class="button-choose pure-button">Wybierz</button>
+                </div>
+            </div>
+        </div> <!-- end pricing-tables -->
+
+        <div class="information pure-g">
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div class="l-box">
+                    <h3 class="information-head">Czym są ślady?</h3>
+                    <p>
+                        Ślady to pojedyncze ścieżki audio. Policz, ile osobnych ścieżek masz w utworze - to będzie Twoja liczba śladów.
+                    </p>
+                </div>
+            </div>
+
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div class="l-box">
+                    <h3 class="information-head">W wypadku większych zamówień</h3>
+                    <p>
+                        Przy zakupie większej ilości miksów, cena spada proporcjonalnie do wielkości zamówienia, szczegóły dogadujemy indywidualnie
+                    </p>
+                </div>
+            </div>
+
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div class="l-box">
+                    <h3 class="information-head">Praca nad albumami</h3>
+                    <p>
+                        Przy mixie/masteringu całego albumu, wycena jest indywidualna.
+                    </p>
+                </div>
+            </div>
+
+            <div class="pure-u-1 pure-u-md-1-2">
+                <div class="l-box">
+                    <h3 class="information-head">Omów szczegóły</h3>
+                    <p>
+                        Wybierając plan, nie zobowiązujesz się płacić za usługę. Zostaniesz przekierowany do formularzu kontaktowego, gdzie będziemy mogli
+                        bardziej szczegółowo porozmawiać o Twoim zamówieniu.
+                    </p>
+                </div>
+            </div>
+        </div> <!-- end information -->
+
+        <div class="ribbon price-includes">
+            <h1 class="content-head is-center">W cenie otrzymujesz:</h1>
+            <div class="l-box-lrg pure-g">
+                <div class="l-box pure-u-1 pure-u-md-1-3 pure-u-lg-1-3">
+                    <p class="price-includes-content">
+                        <i class="fa fa-check"></i>
+                        Wersję na youtube oraz wszelkie serwisy streamingowe.
+                    </p>
+                </div>
+                <div class="l-box pure-u-1 pure-u-md-1-3 pure-u-lg-1-3">
+                    <p class="price-includes-content">
+                        <i class="fa fa-check"></i>
+                        wersję koncertową (z twoim wokalem ściszonym o 80%, lub wybranymi przez ciebie
+                        partiami wokalnymi) - na życzenie
+                    </p>
+                </div>
+                <div class="l-box pure-u-1 pure-u-md-1-3 pure-u-lg-1-3">
+                    <p class="price-includes-content">
+                        <i class="fa fa-check"></i>
+                        wersję a-cappella, oraz wersję instrumentalną - na życzenie
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <div class="content">
+            <h2 class="content-head is-center">Pytania? Skontaktuj się</h2>
+
+            <div class="pure-g">
+                <div style="padding: 0;" class="l-box-lrg pure-u-1 pure-u-md-2-5">
+                    <h4 class="content-head" style="margin: 0 0 0 7em;">Formularz kontaktowy</h4>
+                    <form class="pure-form pure-form-stacked">
+                        <fieldset>
+                            <label style="margin-top: 0" for="service">Wybrana usługa:</label>
+                            <select id="service" class="pure-input-1-2">
+                                <option>Żaden - chcę się tylko skontaktować</option>
+                                <option>poniżej 10 śladów - 89zł</option>
+                                <option>od 10 do 20 śladów - 129zł</option>
+                                <option>powyżej 30 śladów - 149zł</option>
+                            </select>
+                            <label for="name">Imię</label>
+                            <input id="name" type="text" placeholder="Twoje imię" required="">
+
+                            <label for="email">E-mail</label>
+                            <input id="email" type="email" placeholder="Twój e-mail" required="">
+
+                            <label for="message">Treść wiadomości</label>
+                            <textarea class="textarea" required="" id="message" type="text" placeholder="Treść wiadomości" rows="4"></textarea>
+
+                            <button type="submit" class="pure-button">Wyślij wiadomość</button>
+                        </fieldset>
+                    </form>
                 </div>
 
-                <ul class="pricing-table-list">
-                    <li>Free setup</li>
-                    <li>Custom sub-domain</li>
-                    <li>Standard customer support</li>
-                    <li>1GB file storage</li>
-                    <li>1 database</li>
-                    <li>Unlimited bandwidth</li>
-                </ul>
-
-                <button class="button-choose pure-button">Choose</button>
-            </div>
-        </div>
-
-        <div class="pure-u-1 pure-u-md-1-3">
-            <div class="pricing-table pricing-table-biz pricing-table-selected">
-                <div class="pricing-table-header">
-                    <h2>Small Business</h2>
-
-                    <span class="pricing-table-price">
-                        $25 <span>per month</span>
-                    </span>
+                <div style="padding: 0;" class="l-box-lrg pure-u-1 pure-u-md-3-5">
+                    <div class="buttons">
+                        <div class="row">
+                            <button class="twitter">
+                                <span><i class="fa fa-envelope"></i></span>
+                                <a class="link" href="mailto:senimixservices@gmail.com">senimixservices@gmail.com </a>
+                            </button>
+                            <a class="link" href="#" onclick='window.open("https://www.facebook.com/Seni-Mix-Mastering-111342397698442");return false;'>
+                                <button type="submit" class="facebook">
+                                    <span><i class="fa fa-facebook"></i></span>
+                                    Seni Mix & Mastering
+                                </button>
+                            </a>
+                            <a class="link" href="#" onclick='window.open("https://www.instagram.com/seni.qui");return false;'>
+                                <button type="submit" class="instagram">
+                                    <span><i class="fa fa-instagram"></i></span>
+                                    seni.qui
+                                </button>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-
-                <ul class="pricing-table-list">
-                    <li>Free setup</li>
-                    <li>Use your own domain</li>
-                    <li>Standard customer support</li>
-                    <li>10GB file storage</li>
-                    <li>5 databases</li>
-                    <li>Unlimited bandwidth</li>
-                </ul>
-
-                <button class="button-choose pure-button">Choose</button>
             </div>
         </div>
-
-        <div class="pure-u-1 pure-u-md-1-3">
-            <div class="pricing-table pricing-table-enterprise">
-                <div class="pricing-table-header">
-                    <h2>Enterprise</h2>
-
-                    <span class="pricing-table-price">
-                        $45 <span>per month</span>
-                    </span>
-                </div>
-
-                <ul class="pricing-table-list">
-                    <li>Free setup</li>
-                    <li>Use your own domain</li>
-                    <li>Premium customer support</li>
-                    <li>Unlimited file storage</li>
-                    <li>25 databases</li>
-                    <li>Unlimited bandwidth</li>
-                </ul>
-
-                <button class="button-choose pure-button">Choose</button>
-            </div>
-        </div>
-    </div> <!-- end pricing-tables -->
-
-    <div class="information pure-g">
-        <div class="pure-u-1 pure-u-md-1-2">
-            <div class="l-box">
-                <h3 class="information-head">Get started today</h3>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
-                </p>
-            </div>
-        </div>
-
-        <div class="pure-u-1 pure-u-md-1-2">
-            <div class="l-box">
-                <h3 class="information-head">Pay monthly or annually</h3>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse.
-                </p>
-            </div>
-        </div>
-
-        <div class="pure-u-1 pure-u-md-1-2">
-            <div class="l-box">
-                <h3 class="information-head">24/7 customer support</h3>
-                <p>
-                    Cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </p>
-            </div>
-        </div>
-
-        <div class="pure-u-1 pure-u-md-1-2">
-            <div class="l-box">
-                <h3 class="information-head">Cancel your plan anytime</h3>
-                <p>
-                    Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                </p>
-            </div>
-        </div>
-    </div> <!-- end information -->
-</div> <!-- end l-content -->
-
-<div class="footer l-box">
-    <p>
-        <a href="#">Try now</a> for 14 days. No credit card required. Header image courtesy of <a href='http://unsplash.com/'>Unsplash</a>.
-    </p>
-</div>
-
+    </div> <!-- end l-content -->
+</div> <!-- end content wrapper-->
 </body>
 </html>
