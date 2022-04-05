@@ -4,54 +4,16 @@
     box-sizing: border-box;
 }
 
-/*#vid-container{*/
-/*    position: relative;*/
-/*    padding: 10%;*/
-/*}*/
-
-/*#vid-container iframe{*/
-/*    position: absolute;*/
-/*    top:0;*/
-/*    left: 0;*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-/*}*/
-
-#vid-container {
-    display: flex;
-    flex-direction: row;
+/* -- BASE STYLES */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
-#vid-container button {
-    background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 0;
-    text-align: center;
-    color: #888888;
-    font-size: 36px;
-    padding: 10px;
-}
-
-#vid-container iframe {
-    flex-basis: 98%;
-}
-
-#o-mnie-container {
-    padding: 1em;
-}
-
-/*
- * -- BASE STYLES --
- * Most of these are inherited from Base, but I want to change a few.
- */
 body {
     line-height: 1.7em;
     color: #7f8c8d;
     font-size: 13px;
-}
-
-#navbar-logo {
-    height: 100%;
-    width: 125px;
 }
 
 h1,
@@ -73,16 +35,14 @@ label {
     margin-top: 0
 }
 
-/*
- * -- LAYOUT STYLES --
- * These are some useful classes which I will need
- */
+ /*LAYOUT STYLES*/
+
 .l-box {
     padding: 1em;
 }
 
 .l-box-lrg {
-    padding: 2em;
+    padding: 0.2em;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
@@ -91,10 +51,7 @@ label {
 }
 
 
-/*
- * -- PURE FORM STYLES --
- * Style the form inputs and labels
- */
+/* FORM STYLES */
 .pure-form label {
     margin: 1em 0 0;
     font-weight: bold;
@@ -109,10 +66,7 @@ label {
     margin-bottom: 1em;
 }
 
-/*
- * -- PURE BUTTON STYLES --
- * I want my pure-button elements to look a little different
- */
+/* BUTTON STYLES */
 .pure-button {
     background-color: #34495e;
     color: white;
@@ -128,19 +82,39 @@ a.pure-button-primary {
 }
 
 
-/*
- * -- MENU STYLES --
- * I want to customize how my .pure-menu looks at the top of the page
- */
+/* NAVBAR STYLES */
 
 .home-menu {
+    display: none;
     padding: 0.5em;
     text-align: center;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.10);
+    max-width: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, .7);
+    transition: all 2s;
 }
 
-.home-menu {
-    background-color: rgba(0, 0, 0, .7);
+.home-menu.pure-menu.pure-menu-horizontal.pure-menu-fixed{
+    min-height: 3em;
+    transition: all .25s linear;
+}
+
+.home-menu.pure-menu.pure-menu-horizontal.pure-menu-fixed.responsive{
+    min-height: 12em !important;
+    transition: all .25s linear;
+}
+
+.pure-menu-horizontal .pure-menu-item {
+    display: none;
+}
+
+.pure-menu-horizontal .pure-menu-item.horizontal{
+    display: block;
+}
+
+.max{
+    display: block;
 }
 
 .pure-menu.pure-menu-fixed {
@@ -149,14 +123,56 @@ a.pure-button-primary {
     display: flex;
     align-items: center;
     margin-bottom: 0;
+    transition: all 2s;
 }
 
-.pure-menu-list-right {
-    z-index: 4;
-    display: flex;
-    align-items: center;
+.pure-img-logo {
+    height: 100%;
+    width: 125px;
+    transition: all .25s;
+}
+
+.pure-img-logo.responsive{
+    height: 100%;
+    width: 150px;
+    transition: all .25s;
+}
+
+.pure-menu-list a {
+    display: none;
+    text-align: center;
+    transition: all 2s;
+}
+
+.pure-menu-item-hamburger{
+    float: right;
+    display: block;
     margin-left: auto;
-    margin-right: 1em;
+    width: 30%;
+    align-self: flex-end;
+}
+
+.pure-menu-list{
+    width: 100%;
+    min-height: 5em;
+    transition: all .25s linear;
+}
+
+.pure-menu-list.responsive {
+    min-height: 12em !important;
+    transition: all .25s linear;
+    margin: 0;
+    padding: 0;
+}
+
+.pure-menu-list.responsive li.pure-menu-item-hamburger {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.pure-menu-link.responsive{
+    display: inline-block;
 }
 
 #navbar-lang-button {
@@ -177,7 +193,6 @@ a.pure-button-primary {
 .home-menu .pure-menu-button {
     background: transparent;
     color: #6FBEF3;
-    margin: 1em;
     border: none;
 }
 
@@ -189,6 +204,10 @@ a.pure-button-primary {
     color: #6FBEF3;
 }
 
+li:first-child{
+    margin-top: 1em;
+}
+
 .home-menu li a:hover,
 .home-menu li a:focus {
     background: none;
@@ -196,19 +215,22 @@ a.pure-button-primary {
     color: #AECFE5;
 }
 
+/* DLA DESKTOPA !!!
+.pure-menu-horizontal .pure-menu-heading, .pure-menu-horizontal .pure-menu-item, .pure-menu-horizontal .pure-menu-separator {
+    display: inline-block;
+}*/
 
-/*
- * -- SPLASH STYLES --
- * This is the blue top section that appears on the page.
- */
+
+/*SPLASH STYLES */
 
 .splash-container {
     background-image: url("../img/studiobg.png");
+    background-size: cover;
     z-index: 1;
     overflow: hidden;
     /* The following styles are required for the "scroll-over" effect */
     width: 100%;
-    height: 88%;
+    height: 60%;
     top: 0;
     left: 0;
     position: fixed !important;
@@ -216,11 +238,11 @@ a.pure-button-primary {
 
 .splash {
     /* absolute center .splash within .splash-container */
-    width: 80%;
-    height: 50%;
+    width: 75%;
+    height: 45%;
     margin: auto;
     position: absolute;
-    top: 100px;
+    top: 1em;
     left: 0;
     bottom: 0;
     right: 0;
@@ -230,12 +252,11 @@ a.pure-button-primary {
 
 /* This is the main heading that appears on the blue section */
 .splash-head {
-    font-size: 20px;
+    font-size: 3em;
     font-weight: bold;
     color: white;
     border: 3px solid white;
     padding: 1em 1.6em;
-    font-weight: 100;
     border-radius: 5px;
     line-height: 1em;
 }
@@ -255,7 +276,7 @@ a.pure-button-primary {
 .content-wrapper {
     /* These styles are required for the "scroll-over" effect */
     position: absolute;
-    top: 87%;
+    top: 60%;
     width: 100%;
     min-height: 12%;
     z-index: 2;
@@ -286,13 +307,38 @@ a.pure-button-primary {
 }
 
 .content-subhead i {
-    margin-right: 7px;
+    margin-right: 1em;
 }
 
 /* This is the class used for the dark-background areas. */
 .ribbon {
     background: #2d3e50;
     color: #aaa;
+}
+
+#vid-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+#vid-container button {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 0;
+    text-align: center;
+    color: #888888;
+    font-size: 20px;
+    padding: 5px;
+}
+
+#vid-container iframe {
+    flex-basis: 99%;
+    max-width: 100%;
+    height: 17em;
+}
+
+#o-mnie-container {
+    padding: 1em;
 }
 
 /* This is the class used for the footer */
@@ -313,6 +359,7 @@ a.pure-button-primary {
 
 .buttons {
     margin-top: 3em;
+    margin-left: 20%;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -329,9 +376,8 @@ a.pure-button-primary {
 .buttons .row button {
     position: relative;
     display: block;
-    height: 55px;
-    width: 350px;
-    margin-bottom: 1em;
+    height: 3.5em;
+    width: 15em;
     color: #fff;
     font-size: 20px;
     font-weight: 500;
@@ -356,6 +402,7 @@ a.pure-button-primary {
     background: #3B5999;
     border-left: 1px solid #2E4476;
     box-shadow: 0 5px 0 0 #2E4476;
+    font-size: 16px;
 }
 
 .row button.facebook:active {
@@ -379,6 +426,7 @@ a.pure-button-primary {
     background: #e1306c;
     border-left: 1px solid #c91d56;
     box-shadow: 0 5px 0 0 #c91d56;
+    font-size: 16px;
 }
 
 .row button.instagram:active {
@@ -387,8 +435,8 @@ a.pure-button-primary {
 
 .row button span {
     position: absolute;
-    height: 55px;
-    width: 60px;
+    height: 3.5em;
+    width: 3.7em;
     top: 0;
     left: -60px;
     line-height: 55px;
@@ -433,93 +481,152 @@ a.pure-button-primary {
     text-decoration: none;
     color: white;
     font-size: 16px;
+    margin: 1em;
 }
 
 .textarea {
     resize: none;
-    width: 700px;
+    width: 100%;
     margin-bottom: 1em;
 }
 
 .pure-form-stacked {
-    margin-left: 7em;
+    margin-left: 1em;
+    margin-right: 1em;
 }
 
 .pure-form input[type] {
-    width: 40%;
+    width: 100%;
 }
 
 
-/*
- * -- TABLET (AND UP) MEDIA QUERIES --
- * On tablets and other medium-sized devices, we want to customize some
- * of the mobile styles.
- */
-@media (min-width: 48em) {
+/*!**/
+/* * -- TABLET (AND UP) MEDIA QUERIES --*/
+/* * On tablets and other medium-sized devices, we want to customize some*/
+/* * of the mobile styles.*/
+/* *!*/
+/*@media (min-width: 320px) {*/
 
-    /* We increase the body font size */
-    body {
-        font-size: 16px;
-    }
+/*    !* We increase the body font size *!*/
+/*    body {*/
+/*        font-size: 16px;*/
+/*    }*/
 
-    /* We can align the menu header to the left, but float the
-    menu items to the right. */
-    .home-menu {
-        text-align: left;
-    }
+/*    !* We can align the menu header to the left, but float the*/
+/*    menu items to the right. *!*/
+/*    .home-menu {*/
+/*        text-align: left;*/
+/*    }*/
 
-    .home-menu ul {
-        float: right;
-    }
+/*    .home-menu ul {*/
+/*        float: right;*/
+/*    }*/
 
-    /* We increase the height of the splash-container */
-    .splash-container {
-        height: 500px;
-    }
+/*    !* We increase the height of the splash-container *!*/
+/*    .splash-container {*/
+/*        height: 500px;*/
+/*    }*/
 
-    /* We decrease the width of the .splash, since we have more width
-    to work with */
+/*    !* We decrease the width of the .splash, since we have more width*/
+/*    to work with *!*/
 
-    .splash {
-        width: 50%;
-        height: 50%;
-    }
+/*    .splash {*/
+/*        width: 50%;*/
+/*        height: 50%;*/
+/*    }*/
 
-    .splash-head {
-        font-size: 250%;
-    }
+/*    .splash-head {*/
+/*        font-size: 250%;*/
+/*    }*/
 
-    .buttons {
-        width: 50%;
-    }
+/*    .buttons {*/
+/*        width: 50%;*/
+/*    }*/
 
-    .textarea {
-        resize: none;
-        width: 350px;
-        margin-bottom: 1em;
-    }
+/*    .textarea {*/
+/*        resize: none;*/
+/*        width: 350px;*/
+/*        margin-bottom: 1em;*/
+/*    }*/
 
-    .pure-form-stacked {
-        margin-left: 1em;
-    }
-
-
-    /* We remove the border-separator assigned to .l-box-lrg */
-    .l-box-lrg {
-        border: none;
-    }
+/*    .pure-form-stacked {*/
+/*        margin-left: 1em;*/
+/*    }*/
 
 
+/*    !* We remove the border-separator assigned to .l-box-lrg *!*/
+/*    .l-box-lrg {*/
+/*        border: none;*/
+/*    }*/
+
+
+/*}*/
+
+/*!**/
+/* * -- DESKTOP (AND UP) MEDIA QUERIES --*/
+/* * On desktops and other large devices, we want to over-ride some*/
+/* * of the mobile and tablet styles.*/
+/* *!*/
+/*@media (min-width: 78em) {*/
+/*    !* We increase the header font size even more *!*/
+/*    .splash-head {*/
+/*        font-size: 300%;*/
+/*    }*/
+/*}*/
+
+.hamburger-icon {
+    width: 75%;
+    height: 75%;
 }
 
-/*
- * -- DESKTOP (AND UP) MEDIA QUERIES --
- * On desktops and other large devices, we want to over-ride some
- * of the mobile and tablet styles.
- */
-@media (min-width: 78em) {
-    /* We increase the header font size even more */
-    .splash-head {
-        font-size: 300%;
-    }
+.menu {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 75%;
+    height: 75%;
 }
+
+.line {
+    fill: none;
+    stroke: whitesmoke;
+    stroke-width: 6;
+    transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+    stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.line1 {
+    stroke-dasharray: 60 207;
+    stroke-width: 6;
+}
+
+.line2 {
+    stroke-dasharray: 60 60;
+    stroke-width: 6;
+}
+
+.line3 {
+    stroke-dasharray: 60 207;
+    stroke-width: 6;
+}
+
+.opened .line1 {
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+    stroke-width: 6;
+}
+
+.opened .line2 {
+    stroke-dasharray: 1 60;
+    stroke-dashoffset: -30;
+    stroke-width: 6;
+}
+
+.opened .line3 {
+    stroke-dasharray: 90 207;
+    stroke-dashoffset: -134;
+    stroke-width: 6;
+}
+
+

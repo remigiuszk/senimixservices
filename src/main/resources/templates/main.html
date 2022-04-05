@@ -10,31 +10,60 @@
     <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.6/build/grids-responsive-min.css"/>
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
     <link href="../static/css/mainstyle.css" th:href="@{/css/mainstyle.css}" rel="stylesheet"/>
-    <script type="text/javascript" th:src="@{/js/main.js}"></script>
 </head>
 <body>
 
 <div class="header">
-    <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+    <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed" id ="navbar">
         <a class="pure-menu-heading" href="">
-            <img id="navbar-logo" alt="logo" class="pure-img" th:src="@{/img/white_logo_transparent_background.png}"/>
+            <img id="navbar-logo" alt="logo" class="pure-img-logo" th:src="@{/img/white_logo_transparent_background.png}"/>
         </a>
-
-        <ul class="pure-menu-list">
-            <li class="pure-menu-item pure-menu-selected"><a th:href="@{/}" class="pure-menu-link">Home</a></li>
-            <li class="pure-menu-item"><a th:href="@{/services}" class="pure-menu-link">Services</a></li>
-        </ul>
-        <ul class="pure-menu-list-right">
-            <li class="pure-menu-item">
-                <button onclick="scrollToBottom()" class="pure-menu-button">Contact us</button>
+        <ul class="pure-menu-list" id="menuItems">
+            <li class="pure-menu-selected"><a th:href="@{/}" class="pure-menu-link" id="item1">Home</a></li>
+            <li><a th:href="@{/services}" class="pure-menu-link" id="item2">Services</a></li>
+            <li>
+                <a class="pure-menu-link" id="item3">
+                    <button onclick="scrollToBottom()" class="pure-menu-button">Contact us</button>
+                </a>
             </li>
-            <li class="pure-menu-item">
-                <a id="navbar-lang-button" th:href="@{/pl}">
+            <li >
+                <a id="navbar-lang-button" th:href="@{/pl}" class="pure-menu-link">
                     <img id="navbar-lang" title="Switch to Polish" alt="PL" height="25px" width="40px" class="pure-img"
                          th:src="@{/img/pl.png}"/>
                 </a>
             </li>
+            <li class="pure-menu-item-hamburger">
+                <button class="menu" id="hamburgerButton" onclick="toggleResponsiveness()">
+                    <svg class="hamburger-icon" width="100" height="100" viewBox="0 0 100 100">
+                        <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+                        <path class="line line2" d="M 20,50 H 80" />
+                        <path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+                    </svg>
+                </button>
+            </li>
         </ul>
+<!--        <ul class="pure-menu-list-right" id="rightList">-->
+<!--            <li class="pure-menu-item">-->
+<!--                <a>-->
+<!--                    <button onclick="scrollToBottom()" class="pure-menu-button">Contact us</button>-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <li class="pure-menu-item">-->
+<!--                <a id="navbar-lang-button" th:href="@{/pl}">-->
+<!--                    <img id="navbar-lang" title="Switch to Polish" alt="PL" height="25px" width="40px" class="pure-img"-->
+<!--                         th:src="@{/img/pl.png}"/>-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <li class="pure-menu-item">-->
+<!--                <button class="menu" id="hamburger-button" onclick="toggleResponsiveness()">-->
+<!--                    <svg class="hamburger-icon" width="100" height="100" viewBox="0 0 100 100">-->
+<!--                        <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />-->
+<!--                        <path class="line line2" d="M 20,50 H 80" />-->
+<!--                        <path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />-->
+<!--                    </svg>-->
+<!--                </button>-->
+<!--            </li>-->
+<!--        </ul>-->
     </div>
 </div>
 
@@ -100,8 +129,7 @@
     <div class="ribbon l-box-lrg pure-g">
         <div class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-3-5" id="vid-container">
             <button class="pure-button"><</button>
-            <iframe th:src="${'https://www.youtube.com/embed/wlnmzSuLElM'}"
-                    height="350px" allow="autoplay; encrypted-media" frameborder="0" allowfullscreen></iframe>
+            <iframe th:src="${'https://www.youtube.com/embed/wlnmzSuLElM'}" allow="autoplay; encrypted-media" frameborder="0" allowfullscreen></iframe>
             <button class="pure-button">></button>
         </div>
         <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-2-5" id="o-mnie-container">
@@ -119,11 +147,10 @@
 
         <div class="pure-g">
             <div style="padding: 0;" class="l-box-lrg pure-u-1 pure-u-md-2-5">
-                <h4 class="content-head" style="margin: 0 0 0 7em;">Contact form</h4>
                 <form class="pure-form pure-form-stacked">
                     <fieldset>
                         <label style="margin-top: 0" for="service">Selected service:</label>
-                        <select id="service" class="pure-input-1-2">
+                        <select id="service" class="pure-input-1-1">
                             <option>None - just contacting</option>
                             <option>below 10 stems - 49$</option>
                             <option>10 to 20 stems - $59</option>
@@ -170,9 +197,7 @@
             </div>
         </div>
     </div>
-
-
 </div>
-
+<script type="text/javascript" th:src="@{/js/main.js}"></script>
 </body>
 </html>
